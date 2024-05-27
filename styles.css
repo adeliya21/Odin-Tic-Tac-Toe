@@ -1,0 +1,16 @@
+ 
+#gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 300px; /* width of the whole gameboard */
+    height: 300px;  /* height of the whole gameboard */
+    gap: 10px;
+}
+
+.square {
+    border: 1px solid black;
+}
+
+#controls {
+    padding: 10px;
+}
