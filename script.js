@@ -39,10 +39,10 @@ const Gameboard = (() => {
         gameBoard[clickedSquareIndex] = value;
     }
 
-    return {
-        render,
-        clearGameBoard,
+    return {        
         getGameBoard,
+        clearGameBoard,
+        render,
         updateSquareContent
     }
 })()
@@ -97,7 +97,7 @@ const Game = (() => {
         let clickedSquareIndex = parseInt(event.target.id.split("-")[1]);
         Gameboard.updateSquareContent(clickedSquareIndex, players[curPlayerIndex].mark);
 
-        if (Game.checkForWin(Gameboard.getGameBoard())) {
+        if (checkForWin(Gameboard.getGameBoard())) {
             displayMessage.innerHTML = `${players[curPlayerIndex].nam} won`; // module messages
         } else if (checkForTie(Gameboard.getGameBoard())) {
             displayMessage.innerHTML = 'It is a tie'; // module messages
@@ -123,8 +123,6 @@ const Game = (() => {
     }
 
     return {
-        updatePlayerTurn,
-        checkForWin,
         start,
         restart,
         attachListenersToRenderedSquares
